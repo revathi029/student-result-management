@@ -507,31 +507,40 @@
 
 
                     /*
-                       Find matching student.
-                    */
+   Find matching student.
+*/
 
-                    const student =
-                        students.find(
-                            function (student) {
+const enteredDob = dob
+    .replace(/\//g, "-")
+    .trim();
 
-                                return (
+const normalizedDob =
+    enteredDob.split("-").length === 3 &&
+    enteredDob.split("-")[0].length === 2
+        ? enteredDob.split("-").reverse().join("-")
+        : enteredDob;
 
-                                    String(
-                                        student.rollNumber
-                                    )
-                                    .toLowerCase()
-                                    ===
-                                    rollNumber.toLowerCase()
+const student =
+    students.find(
+        function (student) {
 
-                                    &&
+            return (
+                String(student.rollNumber)
+                    .toLowerCase()
+                    .trim()
+                ===
+                rollNumber.toLowerCase().trim()
 
-                                    student.dob === dob
+                &&
 
-                                );
+                String(student.dob)
+                    .trim()
+                ===
+                normalizedDob
+            );
 
-                            }
-                        );
-
+        }
+    );
 
                     /*
                        Student not found.
