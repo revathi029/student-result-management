@@ -156,28 +156,38 @@
 
 
 
-                <!-- DATE OF BIRTH -->
+               <!-- DATE OF BIRTH -->
 
-                <div class="input-group">
+<div class="input-group">
 
-                    <label for="dob">
+    <label for="dob">
+        Date of Birth
+    </label>
 
-                        Date of Birth
+    <input
+        type="text"
+        id="dob"
+        placeholder="DD/MM/YYYY"
+        maxlength="10"
+        inputmode="numeric"
+        autocomplete="off"
+    >
 
-                    </label>
+    <button
+        type="button"
+        onclick="openDatePicker()"
+    >
+        📅
+    </button>
 
+    <input
+        type="date"
+        id="hiddenDatePicker"
+        style="display:none;"
+        onchange="setSelectedDate(this.value)"
+    >
 
-                    <input
-    type="text"
-    id="dob"
-    placeholder="DD/MM/YYYY"
-    maxlength="10"
-    inputmode="numeric"
-    pattern="\d{2}/\d{2}/\d{4}"
->
-
-                </div>
-
+</div>
 
 
                 <!-- VIEW RESULT BUTTON -->
@@ -585,6 +595,36 @@ const student =
             );
 
         }
+
+       function openDatePicker() {
+
+    const picker =
+        document.getElementById("hiddenDatePicker");
+
+    if (picker.showPicker) {
+        picker.showPicker();
+    } else {
+        picker.click();
+    }
+}
+
+
+function setSelectedDate(value) {
+
+    if (!value) {
+        return;
+    }
+
+    const parts =
+        value.split("-");
+
+    document.getElementById("dob").value =
+        parts[2] +
+        "/" +
+        parts[1] +
+        "/" +
+        parts[0];
+} 
 
     </script>
 

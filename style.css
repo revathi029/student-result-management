@@ -1209,3 +1209,30 @@ footer p {
     }
 
 }
+
+input[type="date"] {
+    position: relative;
+    padding-right: 40px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    opacity: 1;
+    position: absolute;
+    right: 10px;
+}
+
+/* Keep calendar icon clearly inside DOB field */
+input[type="date"] {
+    position: relative;
+    padding-right: 45px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 1;
+    cursor: pointer;
+    position: absolute;
+    right: 12px;
+    width: 20px;
+    height: 20px;
+}
