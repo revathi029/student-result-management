@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Student Result | University Examination</title>
+
+    <link rel="stylesheet"
+          href="style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="result-header">
+
+    <div class="logo-section">
+
+        <div class="logo-circle">
+            U
+        </div>
+
+        <div>
+
+            <h2>
+                UNIVERSITY
+            </h2>
+
+            <p>
+                EXAMINATION & RESULTS
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <nav>
+
+        <a href="index.html#home">
+            Home
+        </a>
+
+        <a href="index.html#results">
+            Results
+        </a>
+
+        <a href="index.html#instructions">
+            Instructions
+        </a>
+
+        <a href="admin.html">
+            Admin
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =====================================================
+     RESULT PAGE
+===================================================== -->
+
+<main class="result-page">
+
+
+    <!-- RESULT HEADING -->
+
+    <div class="result-heading">
+
+        <p>
+            UNIVERSITY EXAMINATION
+        </p>
+
+        <h1>
+            STATEMENT OF MARKS
+        </h1>
+
+        <h3>
+            ACADEMIC YEAR 2026
+        </h3>
+
+    </div>
+
+
+
+    <!-- =================================================
+         STUDENT INFORMATION
+    ================================================== -->
+
+    <section class="student-information">
+
+
+        <div class="student-detail">
+
+            <span>
+                Roll Number
+            </span>
+
+            <strong id="displayRollNumber">
+                -
+            </strong>
+
+        </div>
+
+
+        <div class="student-detail">
+
+            <span>
+                Student Name
+            </span>
+
+            <strong id="displayName">
+                -
+            </strong>
+
+        </div>
+
+
+        <div class="student-detail">
+
+            <span>
+                Date of Birth
+            </span>
+
+            <strong id="displayDob">
+                -
+            </strong>
+
+        </div>
+
+
+        <div class="student-detail">
+
+            <span>
+                Course
+            </span>
+
+            <strong id="displayCourse">
+                -
+            </strong>
+
+        </div>
+
+
+        <div class="student-detail">
+
+            <span>
+                Department
+            </span>
+
+            <strong id="displayDepartment">
+                -
+            </strong>
+
+        </div>
+
+
+        <div class="student-detail">
+
+            <span>
+                Semester
+            </span>
+
+            <strong id="displaySemester">
+                -
+            </strong>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         MARKS TABLE
+    ================================================== -->
+
+    <section class="marks-section">
+
+
+        <table class="marks-table">
+
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        S.No
+                    </th>
+
+                    <th>
+                        Subject Code
+                    </th>
+
+                    <th>
+                        Subject
+                    </th>
+
+                    <th>
+                        Internal
+                        <br>
+                        (25)
+                    </th>
+
+                    <th>
+                        External
+                        <br>
+                        (75)
+                    </th>
+
+                    <th>
+                        Total
+                        <br>
+                        (100)
+                    </th>
+
+                    <th>
+                        Grade
+                    </th>
+
+                    <th>
+                        Grade Point
+                    </th>
+
+                    <th>
+                        Credits
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody id="marksTable">
+
+                <!-- JavaScript will insert subjects here -->
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         RESULT SUMMARY
+    ================================================== -->
+
+    <section class="result-summary">
+
+
+        <div>
+
+            <span>
+                Total Marks
+            </span>
+
+            <strong id="displayTotal">
+                -
+            </strong>
+
+        </div>
+
+
+        <div>
+
+            <span>
+                Percentage
+            </span>
+
+            <strong id="displayPercentage">
+                -
+            </strong>
+
+        </div>
+
+
+        <div>
+
+            <span>
+                SGPA
+            </span>
+
+            <strong id="displaySGPA">
+                -
+            </strong>
+
+        </div>
+
+
+        <div>
+
+            <span>
+                Result
+            </span>
+
+            <strong id="displayResult">
+                -
+            </strong>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         BUTTONS
+    ================================================== -->
+
+    <div class="result-buttons">
+
+
+        <button
+            type="button"
+            onclick="printResult()">
+
+            PRINT RESULT
+
+        </button>
+
+
+        <button
+            type="button"
+            onclick="window.location.href='index.html#results'">
+
+            BACK TO SEARCH
+
+        </button>
+
+
+    </div>
+
+
+
+    <!-- =================================================
+         DISCLAIMER
+    ================================================== -->
+
+    <div class="disclaimer">
+
+        <strong>
+            Disclaimer:
+        </strong>
+
+        This result is published for immediate
+        information only and should not be treated
+        as the original marksheet.
+
+    </div>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+
+    <div>
+
+        <h3>
+            University Examination Cell
+        </h3>
+
+        <p>
+            Examination & Results Division
+        </p>
+
+    </div>
+
+
+    <div>
+
+        <p>
+            © 2026 University Examination Cell
+        </p>
+
+        <p>
+            All Rights Reserved
+        </p>
+
+    </div>
+
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>

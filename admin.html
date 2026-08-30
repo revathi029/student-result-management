@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Admin Portal | University Examination</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+    <div class="logo-section">
+
+        <div class="logo">
+            U
+        </div>
+
+        <div>
+
+            <h1>
+                UNIVERSITY
+            </h1>
+
+            <p>
+                EXAMINATION & RESULTS
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <nav class="navigation">
+
+        <a href="index.html#home">
+            Home
+        </a>
+
+        <a href="index.html#results">
+            Results
+        </a>
+
+        <a href="index.html#instructions">
+            Instructions
+        </a>
+
+        <a href="admin.html">
+            Admin
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =====================================================
+     ADMIN LOGIN
+===================================================== -->
+
+<section
+    class="admin-login-section"
+    id="adminLoginSection"
+>
+
+    <div class="admin-login-card">
+
+        <p class="small-title">
+            ADMINISTRATION
+        </p>
+
+        <h2>
+            Admin Login
+        </h2>
+
+        <p>
+            Login to manage student examination results.
+        </p>
+
+
+        <form id="adminLoginForm">
+
+
+            <div class="input-group">
+
+                <label for="adminUsername">
+                    Username
+                </label>
+
+                <input
+                    type="text"
+                    id="adminUsername"
+                    placeholder="Enter username"
+                    required
+                >
+
+            </div>
+
+
+
+            <div class="input-group">
+
+                <label for="adminPassword">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="adminPassword"
+                    placeholder="Enter password"
+                    required
+                >
+
+            </div>
+
+
+            <p
+                id="loginError"
+                class="error-message"
+            ></p>
+
+
+            <button
+                type="submit"
+                class="result-button"
+            >
+                ADMIN LOGIN
+            </button>
+
+
+        </form>
+
+
+        <div class="admin-note">
+
+            Authorized personnel only.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ADMIN DASHBOARD
+===================================================== -->
+
+<section
+    class="admin-dashboard hidden"
+    id="adminDashboard"
+>
+
+
+    <!-- DASHBOARD HEADER -->
+
+    <div class="dashboard-header">
+
+        <div>
+
+            <p class="small-title">
+                ADMINISTRATION
+            </p>
+
+            <h2>
+                Admin Dashboard
+            </h2>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="logout-button"
+            onclick="logoutAdmin()"
+        >
+            LOGOUT
+        </button>
+
+    </div>
+
+
+
+    <!-- =================================================
+         STATISTICS
+    ================================================== -->
+
+    <div class="statistics">
+
+
+        <div class="stat-card">
+
+            <span>
+                Total Students
+            </span>
+
+            <strong id="totalStudents">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>
+                Passed
+            </span>
+
+            <strong id="passedStudents">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>
+                Failed
+            </span>
+
+            <strong id="failedStudents">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>
+                Average Percentage
+            </span>
+
+            <strong id="averagePercentage">
+                0%
+            </strong>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =================================================
+         ADD STUDENT RESULT
+    ================================================== -->
+
+    <section class="admin-panel">
+
+
+        <div class="panel-title">
+
+            <div>
+
+                <p class="small-title">
+                    STUDENT MANAGEMENT
+                </p>
+
+                <h2>
+                    Add Student Result
+                </h2>
+
+            </div>
+
+        </div>
+
+
+
+        <form id="studentForm">
+
+
+            <!-- STUDENT INFORMATION -->
+
+            <div class="admin-form-grid">
+
+
+                <!-- ROLL NUMBER -->
+
+                <div class="input-group">
+
+                    <label for="rollNumber">
+                        Roll Number
+                    </label>
+
+                    <input
+                        type="text"
+                        id="rollNumber"
+                        placeholder="Example: MCA001"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- STUDENT NAME -->
+
+                <div class="input-group">
+
+                    <label for="studentName">
+                        Student Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="studentName"
+                        placeholder="Enter student name"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- DOB -->
+
+                <div class="input-group">
+
+                    <label for="studentDob">
+                        Date of Birth
+                    </label>
+
+                    <input
+                        type="date"
+                        id="studentDob"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- COURSE -->
+
+                <div class="input-group">
+
+                    <label for="studentCourse">
+                        Course
+                    </label>
+
+                    <select
+                        id="studentCourse"
+                        required
+                    >
+
+                        <option value="">
+                            Select Course
+                        </option>
+
+                        <option value="MCA">
+                            Master of Computer Applications (MCA)
+                        </option>
+
+                        <option value="MBA">
+                            Master of Business Administration (MBA)
+                        </option>
+
+                        <option value="M.Com">
+                            Master of Commerce (M.Com)
+                        </option>
+
+                        <option value="M.Sc">
+                            Master of Science (M.Sc)
+                        </option>
+
+                        <option value="BCA">
+                            Bachelor of Computer Applications (BCA)
+                        </option>
+
+                        <option value="B.Sc">
+                            Bachelor of Science (B.Sc)
+                        </option>
+
+                        <option value="B.Com">
+                            Bachelor of Commerce (B.Com)
+                        </option>
+
+                        <option value="BA">
+                            Bachelor of Arts (BA)
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- DEPARTMENT -->
+
+                <div class="input-group">
+
+                    <label for="studentDepartment">
+                        Department
+                    </label>
+
+                    <select
+                        id="studentDepartment"
+                        required
+                    >
+
+                        <option value="">
+                            Select Department
+                        </option>
+
+                        <option value="Computer Applications">
+                            Computer Applications
+                        </option>
+
+                        <option value="Computer Science">
+                            Computer Science
+                        </option>
+
+                        <option value="Information Technology">
+                            Information Technology
+                        </option>
+
+                        <option value="Commerce">
+                            Commerce
+                        </option>
+
+                        <option value="Management Studies">
+                            Management Studies
+                        </option>
+
+                        <option value="Mathematics">
+                            Mathematics
+                        </option>
+
+                        <option value="Physics">
+                            Physics
+                        </option>
+
+                        <option value="Chemistry">
+                            Chemistry
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- SEMESTER -->
+
+                <div class="input-group">
+
+                    <label for="studentSemester">
+                        Semester
+                    </label>
+
+                    <select
+                        id="studentSemester"
+                        required
+                    >
+
+                        <option value="">
+                            Select Semester
+                        </option>
+
+                        <option value="I">
+                            Semester I
+                        </option>
+
+                        <option value="II">
+                            Semester II
+                        </option>
+
+                        <option value="III">
+                            Semester III
+                        </option>
+
+                        <option value="IV">
+                            Semester IV
+                        </option>
+
+                        <option value="V">
+                            Semester V
+                        </option>
+
+                        <option value="VI">
+                            Semester VI
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 SUBJECT DETAILS
+            ================================================== -->
+
+            <h3 class="subject-title">
+                Subject Details
+            </h3>
+
+
+            <div id="subjectContainer">
+
+
+                <!-- SUBJECT 1 -->
+
+                <div class="subject-row">
+
+
+                    <input
+                        type="text"
+                        class="subject-code"
+                        placeholder="Subject Code"
+                        required
+                    >
+
+
+                    <input
+                        type="text"
+                        class="subject-name"
+                        placeholder="Subject Name"
+                        required
+                    >
+
+
+                    <input
+                        type="number"
+                        class="subject-internal"
+                        placeholder="Internal / 25"
+                        min="0"
+                        max="25"
+                        required
+                    >
+
+
+                    <input
+                        type="number"
+                        class="subject-external"
+                        placeholder="External / 75"
+                        min="0"
+                        max="75"
+                        required
+                    >
+
+
+                    <input
+                        type="number"
+                        class="subject-credits"
+                        placeholder="Credits"
+                        min="1"
+                        max="10"
+                        required
+                    >
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ADD SUBJECT -->
+
+            <button
+                type="button"
+                class="add-subject-button"
+                onclick="addSubjectRow()"
+            >
+                + ADD SUBJECT
+            </button>
+
+
+            <br>
+
+
+            <!-- SAVE -->
+
+            <button
+                type="submit"
+                class="save-button"
+            >
+                SAVE STUDENT RESULT
+            </button>
+
+
+        </form>
+
+    </section>
+
+
+
+    <!-- =================================================
+         STUDENT RECORDS
+    ================================================== -->
+
+    <section class="admin-panel">
+
+
+        <div class="panel-title">
+
+
+            <div>
+
+                <p class="small-title">
+                    STUDENT MANAGEMENT
+                </p>
+
+                <h2>
+                    Student Records
+                </h2>
+
+            </div>
+
+
+            <!-- SEARCH -->
+
+            <input
+                type="text"
+                id="searchStudent"
+                placeholder="Search by Roll Number or Name"
+                oninput="searchStudents()"
+            >
+
+
+        </div>
+
+
+
+        <!-- RECORD TABLE -->
+
+        <div class="table-container">
+
+
+            <table>
+
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Roll Number
+                        </th>
+
+                        <th>
+                            Student Name
+                        </th>
+
+                        <th>
+                            Course
+                        </th>
+
+                        <th>
+                            Department
+                        </th>
+
+                        <th>
+                            Semester
+                        </th>
+
+                        <th>
+                            Result
+                        </th>
+
+                        <th>
+                            Actions
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+
+                <tbody id="studentTableBody">
+
+                    <!-- JavaScript loads students here -->
+
+                </tbody>
+
+
+            </table>
+
+
+        </div>
+
+
+
+        <div class="admin-note">
+
+            Search students using Roll Number or Student Name.
+            Use Edit to modify a record and Delete to remove
+            a record.
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         CLEAR ALL RECORDS
+    ================================================== -->
+
+    <section class="admin-panel">
+
+
+        <div class="panel-title">
+
+            <div>
+
+                <p class="small-title">
+                    DATA MANAGEMENT
+                </p>
+
+                <h2>
+                    Manage Student Data
+                </h2>
+
+            </div>
+
+
+            <button
+                type="button"
+                onclick="clearAllStudents()"
+            >
+                CLEAR ALL STUDENTS
+            </button>
+
+        </div>
+
+
+        <p class="admin-note">
+
+            Warning: Clearing all students permanently removes
+            all stored student result records from this browser.
+
+        </p>
+
+
+    </section>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+
+    <div>
+
+        <h3>
+            University Examination Cell
+        </h3>
+
+        <p>
+            Examination & Results Division
+        </p>
+
+    </div>
+
+
+    <div>
+
+        <p>
+            © 2026 University Examination Cell
+        </p>
+
+        <p>
+            All Rights Reserved
+        </p>
+
+    </div>
+
+
+</footer>
+
+
+
+<!-- JAVASCRIPT -->
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
