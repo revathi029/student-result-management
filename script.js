@@ -842,7 +842,36 @@ function loadDashboard() {
             failed;
 
     }
+    
+    /* Average Percentage */
 
+const averagePercentage =
+    document.getElementById(
+        "averagePercentage"
+    );
+
+if (averagePercentage) {
+
+    let totalPercentage = 0;
+
+    students.forEach(
+        function(student) {
+
+            totalPercentage +=
+                calculatePercentage(student);
+
+        }
+    );
+
+    const average =
+        students.length > 0
+            ? totalPercentage / students.length
+            : 0;
+
+    averagePercentage.textContent =
+        average.toFixed(2) + "%";
+
+    }
 
     displayStudentRecords();
 
