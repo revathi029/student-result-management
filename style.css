@@ -1285,3 +1285,32 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .navigation a:hover {
     color: #6d28d9;
 }
+
+/* =====================================================
+   DESKTOP GRADENEST LOGO SIZE
+===================================================== */
+
+@media (min-width: 801px) {
+
+    .header .logo-section,
+    .result-header .logo-section {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .header .gradenest-icon,
+    .result-header .gradenest-icon {
+        width: 42px !important;
+        height: 42px !important;
+        object-fit: contain;
+    }
+
+    .header .gradenest-wordmark,
+    .result-header .gradenest-wordmark {
+        width: 155px !important;
+        height: auto !important;
+        object-fit: contain;
+    }
+
+}
